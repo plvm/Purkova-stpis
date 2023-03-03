@@ -32,23 +32,7 @@ public class KontrolController {
     private ObjektService objektService;
     @Autowired
     private RabotaService rabotaService;
-    /*@RequestMapping("/kontrol")
-    public ModelAndView home() throws IOException {
-        List<Kontrol> listKontrol = kontrolService.listAll();
-        ModelAndView mav = new ModelAndView("kontrol");
-        mav.addObject("listKontrol", listKontrol);
-
-        return mav;
-    }*/
-    /*
-    @RequestMapping("/newkontrol")
-    public String newKontrolForm(Map<String, Object> model) {
-       Kontrol kontrol = new Kontrol();
-        model.put("kontrol", kontrol);
-        return "new_kontrol";
-    }
-
-     */
+    
     @RequestMapping(value = "/savekontrol", method = RequestMethod.POST)
     public String saveKontrol ( Kontrol kontrol) {
         Long kolvv=kontrol.getKolvo();
@@ -89,59 +73,12 @@ public class KontrolController {
 
 
     }
- /*   @RequestMapping("/editkontrol")
-    public ModelAndView editSmetaForm(@RequestParam long id) {
-        ModelAndView mav = new ModelAndView("edit_kontrol");
-        Kontrol kontrol = kontrolService.get(id);
-        mav.addObject("kontrol", kontrol);
 
-        return mav;
-    }
-*/
     @RequestMapping("/deletekontrol")
      public String deleteKontrolForm(@RequestParam long id)
     {               kontrolService.delete(id);         return "delete kontrol";    }
 
-/*
-    @RequestMapping("/searchkontrol")
-    public ModelAndView searchKontrolForm(@RequestParam Long id) {
 
-        List<Kontrol> smeta= kontrolService.kontrolsList(id);
-        if(smeta.size()>0) {
-            ModelAndView mav = new ModelAndView("searchkontrol");
-            mav.addObject("kontrol", kontrolService.kontrolsList(id));
-
-        return mav;}
-        else  { ModelAndView mavv = new ModelAndView("no"); return mavv;}
-
-    }
-    @RequestMapping("/searchwork")
-    public ModelAndView searchCustomerForm(@RequestParam Long id) {
-
-        List<Rabota> rabota= rabotaService.rabotaList(id);
-        System.out.println(id);
-        if(rabota.size()>0) {
-            ModelAndView mav = new ModelAndView("searchwork");
-            mav.addObject("rabota",rabotaService.rabotaList(id));
-
-            return mav;}
-        else  { ModelAndView mavv = new ModelAndView("no"); return mavv;}
-
-    }
-    @RequestMapping("/searchobjektt")
-    public ModelAndView searchObjektForm(@RequestParam Long id) {
-System.out.println(id);
-        List<Objekt> objekt= objektService.objektsList(id);
-        if(objekt.size()>0) {
-            ModelAndView mav = new ModelAndView("searchobjektt");
-            mav.addObject("objekt", objektService.objektsList(id));
-
-            return mav;}
-        else  { ModelAndView mavv = new ModelAndView("no"); return mavv;}
-
-    }
-
- */
     @RequestMapping("/kontroll")
     public List<Kontrol> homee()   {
         List<Kontrol> listKontrol = kontrolService.listAll();
